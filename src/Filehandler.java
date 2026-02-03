@@ -18,12 +18,18 @@ public class Filehandler {
     }
     public void tryWriteCostToFile(Cost cost) throws IOException {
         FileWriter fw = new FileWriter("adat.txt", true);
-        fw.write(cost.delivery.toString());
-        fw.write(":");
-        fw.write(cost.business.toString());
-        fw.write(":");
-        fw.write(cost.repair.toString());
-        fw.write("\n");
+        fw.write(genRow(cost));
         fw.close();
+    }
+
+    private String genRow(Cost cost) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(cost.delivery.toString());
+        sb.append(":");
+        sb.append(cost.business.toString());
+        sb.append(":");
+        sb.append(cost.repair.toString());
+        sb.append("\n");
+        return sb.toString();
     }
 }
