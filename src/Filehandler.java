@@ -2,47 +2,28 @@
  * Sallai András, 2024-02-19
  * Copyright (c) 2024, Sallai András
  * Licenc: MIT
- * Refakotárlás esetén jelölje meg, ki, mikor.
+ * Refaktorálva: Vámosi László Ádám, 2026-02-03, II-N
  */
 
-// A fájl writer import
 import java.io.FileWriter;
 import java.io.IOException;
-// A print wirter import:
-import java.io.PrintWriter;
 
-
-/*
- * A fájkezelő osztály
- */
 public class Filehandler {
-    /* Az i() metódus kiírja a 
-    kapott költségeket fájlba.
-    */
-    public void i(Koltseg k) {
-        //Próba, hogy lefut-e.
+    public void writeCostToFile(Cost cost) {
         try {
-            FileWriter fw = new FileWriter("adat.txt", true);
-            fw.write(k.szallitas.toString());
-            fw.write(":");
-            fw.write(k.uzlet.toString());
-            fw.write(":");
-            fw.write(k.javitas.toString());
-            fw.write("\n");
-            fw.close();
-            
+            tryWriteCostToFile(cost);
         } catch (IOException e) {
-            // TODO: handle exception
-        }//A cath ág vége
-    }// Az i változó vége
-    /*
-     * Valahova lehetne tenni egy adatbázis-kezelő
-     * részt is. Ugyanaz a lenne a metódus ami,
-     * kiírja a fájlba és kiírja adatbázisba. 
-     * Mármint a metódus neve lenne ugyanaz.
-     * De lehetnek olyan általános osztály
-     * ahol a konstruktor paraméterként kapná
-     * meg az a típust, amivel tárolni kell.
-     * Mármint, hogy adatbázisba, vagy fájlba.
-     */
+            System.err.println(e.getMessage());
+        }
+    }
+    public void tryWriteCostToFile(Cost cost) throws IOException {
+        FileWriter fw = new FileWriter("adat.txt", true);
+        fw.write(cost.delivery.toString());
+        fw.write(":");
+        fw.write(cost.business.toString());
+        fw.write(":");
+        fw.write(cost.repair.toString());
+        fw.write("\n");
+        fw.close();
+    }
 }

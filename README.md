@@ -1,5 +1,5 @@
 # Költségkezelő program
 
-Refaktorálásra szánt.
+Refaktorált szánt.
 
-Refaktoráláskor nevezd át okcost-ra. Ír le a fejrészbe, ki vagy te, és mikor csinálod.
+Refaktoráláskor nevezd át okcost-ra. Írd le a fejrészbe, ki vagy te, és mikor csinálod.
